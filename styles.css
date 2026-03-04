@@ -310,14 +310,22 @@ body::after {
 @media (max-width: 640px) {
   .hero { padding-top: 2rem; }
   .hero-inner {
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
     gap: var(--space-md);
   }
   .hero-heading {
-    font-size: clamp(1.65rem, 6.5vw, 2.15rem);
+    font-size: clamp(1.5rem, 5.5vw, 1.95rem);
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .hero-graphic {
+    flex-shrink: 0;
   }
   .hero-graphic .idea-svg {
-    max-width: 175px;
-    max-height: 110px;
+    max-width: 140px;
+    max-height: 88px;
   }
   .menu-trigger { min-height: 44px; padding: 0.5rem 1rem; }
 }

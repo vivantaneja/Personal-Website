@@ -161,6 +161,7 @@ body::after {
 .hero-graphic,
 .intro-lead,
 .intro p,
+.intro-location,
 .section-label,
 .project-list,
 .projects-cta,
@@ -173,8 +174,9 @@ body::after {
 .hero-line:first-of-type { animation-delay: 0.2s; }
 .hero-line-accent { animation-delay: 0.35s; }
 .hero-graphic { animation-delay: 0.4s; }
+.intro-location { animation-delay: 0.42s; }
 .intro-lead { animation-delay: 0.45s; }
-.intro p:nth-of-type(2) { animation-delay: 0.55s; }
+.intro p:nth-of-type(3) { animation-delay: 0.55s; }
 #projects .section-label { animation-delay: 0.65s; }
 .project-list { animation-delay: 0.75s; }
 .projects-cta { animation-delay: 0.85s; }
@@ -201,6 +203,7 @@ body::after {
   .hero-graphic,
   .intro-lead,
   .intro p,
+  .intro-location,
   .section-label,
   .project-list,
   .projects-cta,
@@ -307,24 +310,14 @@ body::after {
 @media (max-width: 640px) {
   .hero { padding-top: 2rem; }
   .hero-inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-xl);
-    text-align: center;
+    gap: var(--space-md);
   }
   .hero-heading {
-    flex: none;
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
-  }
-  .hero-graphic {
-    margin-left: 0;
-    margin-right: 0;
-    display: flex;
-    justify-content: center;
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
   .hero-graphic .idea-svg {
-    max-width: min(100%, 320px);
-    max-height: 200px;
+    max-width: 160px;
+    max-height: 100px;
   }
   .menu-trigger { min-height: 44px; padding: 0.5rem 1rem; }
 }
@@ -336,6 +329,18 @@ body::after {
 }
 .intro p:last-child { margin-bottom: 0; }
 
+.intro-location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--accent);
+  font-size: 0.9375rem;
+  margin: 0 0 var(--space-md);
+}
+.intro-location .icon-location {
+  flex-shrink: 0;
+  color: var(--accent);
+}
 .intro-lead {
   font-size: 1.125rem;
   margin-bottom: var(--space-lg);

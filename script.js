@@ -20,38 +20,29 @@
 
   var trigger = document.querySelector(".menu-trigger");
   var nav = document.getElementById("nav");
-  if (!trigger || !nav) return;
-
-  function open() {
-    nav.setAttribute("aria-hidden", "false");
-    trigger.setAttribute("aria-expanded", "true");
-    document.body.style.overflow = "hidden";
-  }
-
-  function close() {
-    nav.setAttribute("aria-hidden", "true");
-    trigger.setAttribute("aria-expanded", "false");
-    document.body.style.overflow = "";
-  }
-
-  function toggle() {
-    var isOpen = nav.getAttribute("aria-hidden") === "false";
-    if (isOpen) close(); else open();
-  }
-
-  trigger.addEventListener("click", toggle);
-
-  nav.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      close();
-    });
-  });
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && nav.getAttribute("aria-hidden") === "false") {
-      close();
+  if (trigger && nav) {
+    function open() {
+      nav.setAttribute("aria-hidden", "false");
+      trigger.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
     }
-  });
+    function close() {
+      nav.setAttribute("aria-hidden", "true");
+      trigger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+    function toggle() {
+      var isOpen = nav.getAttribute("aria-hidden") === "false";
+      if (isOpen) close(); else open();
+    }
+    trigger.addEventListener("click", toggle);
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () { close(); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.getAttribute("aria-hidden") === "false") close();
+    });
+  }
 
   // Email obfuscation: open mailto from data attributes (avoids plain address in HTML)
   var emailLink = document.querySelector(".contact-email");

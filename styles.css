@@ -212,6 +212,9 @@ body::after {
 }
 
 /* --- Hero --- */
+.hero {
+  padding-top: 3rem;
+}
 .hero-inner {
   display: flex;
   align-items: center;
@@ -302,9 +305,27 @@ body::after {
 }
 
 @media (max-width: 640px) {
-  .hero-inner { flex-direction: column; align-items: flex-start; }
-  .hero-graphic { margin-left: 0; }
-  .hero-graphic .idea-svg { max-width: 380px; max-height: 220px; }
+  .hero { padding-top: 2rem; }
+  .hero-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+  .hero-heading {
+    flex: none;
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+  }
+  .hero-graphic {
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-graphic .idea-svg {
+    max-width: min(100%, 320px);
+    max-height: 200px;
+  }
   .menu-trigger { min-height: 44px; padding: 0.5rem 1rem; }
 }
 

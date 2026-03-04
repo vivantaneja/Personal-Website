@@ -76,7 +76,7 @@
     var velocities = [0, 0, 0];
     var friction = 0.985;
     var tapBurst = 12;
-    var idleSpin = [0.08, -0.06, 0.07]; // slow base spin per frame (gear 2 opposite)
+    var idleSpin = [0.12, -0.09, 0.11]; // slow base spin per frame (gear 2 opposite)
 
     svg.classList.add("gears-momentum");
 

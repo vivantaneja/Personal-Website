@@ -310,6 +310,7 @@ body::after {
 @media (max-width: 640px) {
   .hero { padding-top: 2rem; }
   .hero-inner {
+    flex-wrap: nowrap;
     gap: var(--space-md);
   }
   .hero-heading {

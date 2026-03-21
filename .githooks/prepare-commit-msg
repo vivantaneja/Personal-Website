@@ -1,0 +1,15 @@
+#!/bin/sh
+# Strips Cursor "Made-with" / "Co-authored-by" lines from the commit message.
+# Repo uses: git config core.hooksPath .githooks
+MSG_FILE=$1
+[ -n "$MSG_FILE" ] && [ -f "$MSG_FILE" ] || exit 0
+TMP="${MSG_FILE}.strip.$$"
+grep -viE '^co-authored-by:.*cursor' "$MSG_FILE" | grep -viE '^made-with:.*cursor' > "$TMP" || {
+  rm -f "$TMP"
+  exit 0
+}
+if cmp -s "$MSG_FILE" "$TMP"; then
+  rm -f "$TMP"
+  exit 0
+fi
+mv "$TMP" "$MSG_FILE"

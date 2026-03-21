@@ -1,4 +1,29 @@
 (function () {
+  var themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    var root = document.documentElement;
+    function isDark() {
+      return root.getAttribute("data-theme") === "dark";
+    }
+    function applyTheme(dark) {
+      if (dark) {
+        root.setAttribute("data-theme", "dark");
+        try { localStorage.setItem("theme", "dark"); } catch (e) {}
+        themeToggle.setAttribute("aria-pressed", "true");
+        themeToggle.setAttribute("aria-label", "Enable light mode");
+      } else {
+        root.removeAttribute("data-theme");
+        try { localStorage.setItem("theme", "light"); } catch (e) {}
+        themeToggle.setAttribute("aria-pressed", "false");
+        themeToggle.setAttribute("aria-label", "Enable dark mode");
+      }
+    }
+    applyTheme(isDark());
+    themeToggle.addEventListener("click", function () {
+      applyTheme(!isDark());
+    });
+  }
+
   // On load/refresh, always show the top of the page
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 

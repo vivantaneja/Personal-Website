@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Curious secondary school student building projects and trying things." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <title>Vivan Taneja</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,12 +21,13 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Enable dark mode">
-    <svg class="theme-toggle-icon theme-toggle-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-    <svg class="theme-toggle-icon theme-toggle-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-  </button>
-
   <main id="main" class="main">
+    <div class="theme-toggle-row">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Enable dark mode">
+        <svg class="theme-toggle-icon theme-toggle-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg class="theme-toggle-icon theme-toggle-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
     <section class="hero section" aria-labelledby="hero-heading">
       <div class="hero-inner">
         <h1 id="hero-heading" class="hero-heading">
@@ -96,6 +98,23 @@
           More on GitHub
         </a>
       </p>
+    </section>
+
+    <section id="achievements" class="section achievements" aria-labelledby="achievements-heading">
+      <h2 id="achievements-heading" class="section-label">Achievements</h2>
+      <ul class="project-list">
+        <li class="project-item">
+          <span class="project-name">
+            <a href="https://bpfi.ie/moneyquiz/" target="_blank" rel="noopener noreferrer">
+              European Money Quiz
+              <svg class="icon icon-external" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </span>
+          <span class="project-desc">
+            Won the Irish national final, representing Ireland at the European Finals in Brussels, May 2026.
+          </span>
+        </li>
+      </ul>
     </section>
 
     <section id="beyond-work" class="section beyond-work" aria-labelledby="beyond-heading">

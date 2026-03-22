@@ -108,11 +108,11 @@ body::after {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   padding: 0;
   border: 1.5px solid var(--border);
-  border-radius: 10px;
+  border-radius: 8px;
   background: var(--bg-card);
   color: var(--text);
   cursor: pointer;
@@ -140,6 +140,8 @@ body::after {
 }
 .theme-toggle-icon {
   position: absolute;
+  width: 18px;
+  height: 18px;
   transition: opacity var(--duration) var(--ease-out), transform var(--duration) var(--ease-out);
 }
 .theme-toggle-sun {
@@ -379,6 +381,7 @@ body::after {
   line-height: 0;
   cursor: pointer;
   transition: color var(--theme-transition) var(--ease-out);
+  margin-right: 0;
 }
 .hero-graphic .idea-svg {
   display: block;
@@ -386,6 +389,7 @@ body::after {
   height: auto;
   max-width: 595px;
   max-height: 340px;
+  transform: translateX(4px);
 }
 /* Gears: position and rotate */
 .gears-svg .gear {
@@ -439,19 +443,24 @@ body::after {
   .hero {
     padding-top: 0.5rem;
   }
+  /* inline-block: Safari shrink-wraps h1; margin-right + gap + space-between = clear space before gears */
   .hero-inner {
     flex-wrap: nowrap;
     align-items: flex-end;
     justify-content: space-between;
-    gap: var(--space-sm);
+    column-gap: clamp(1.25rem, 5vw, 2.5rem);
   }
   .hero-heading {
+    display: inline-block;
     font-size: clamp(2rem, 7vw, 2.7rem);
     line-height: 1.1;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
+    max-width: calc(100% - 150px);
     min-width: 0;
+    margin: 0 clamp(1.25rem, 5vw, 2.75rem) 0 0;
     align-self: flex-end;
     transform-origin: bottom right;
+    vertical-align: bottom;
   }
   .hero-heading .hero-line:first-child {
     white-space: nowrap;
@@ -461,13 +470,16 @@ body::after {
     white-space: nowrap;
   }
   .hero-graphic {
+    flex: 0 0 auto;
     flex-shrink: 0;
     align-self: flex-end;
-    transform: translateX(5px);
+    margin-left: 0;
+    margin-right: 0;
   }
   .hero-graphic .idea-svg {
     max-width: 140px;
     max-height: 89px;
+    transform: translateX(clamp(6px, 6vw, 28px));
   }
   .menu-trigger { min-height: 44px; padding: 0.5rem 1rem; }
 }
@@ -479,6 +491,7 @@ body::after {
   .hero-graphic .idea-svg {
     max-width: 118px;
     max-height: 75px;
+    transform: translateX(clamp(4px, 5vw, 20px));
   }
 }
 

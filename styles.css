@@ -443,7 +443,8 @@ body::after {
     gap: var(--space-md);
   }
   .hero-heading {
-    font-size: clamp(1.6rem, 5.8vw, 2.05rem);
+    /* Larger on phone — closer to desktop min (2.3rem) without crowding the gears */
+    font-size: clamp(2.1rem, 6.2vw, 2.75rem);
     flex: 1 1 auto;
     min-width: 0;
   }
@@ -453,6 +454,20 @@ body::after {
   .hero-graphic .idea-svg {
     max-width: 150px;
     max-height: 95px;
+  }
+  .theme-toggle-row {
+    padding-top: max(0.75rem, env(safe-area-inset-top));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+  }
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+  .theme-toggle-icon {
+    width: 17px;
+    height: 17px;
   }
   .menu-trigger { min-height: 44px; padding: 0.5rem 1rem; }
 }

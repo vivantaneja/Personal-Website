@@ -435,26 +435,51 @@ body::after {
 }
 
 @media (max-width: 640px) {
-  .hero { padding-top: 1rem; }
+  /* Pull hero up; heading + gears align to bottom so type “grows” toward the corner */
+  .hero {
+    padding-top: 0.5rem;
+  }
   .hero-inner {
     flex-wrap: nowrap;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    gap: var(--space-md);
+    gap: var(--space-sm);
   }
   .hero-heading {
-    font-size: clamp(1.6rem, 5.8vw, 2.05rem);
+    font-size: clamp(2rem, 7vw, 2.7rem);
+    line-height: 1.1;
     flex: 1 1 auto;
     min-width: 0;
+    align-self: flex-end;
+    transform-origin: bottom right;
+  }
+  .hero-heading .hero-line:first-child {
+    white-space: nowrap;
+  }
+  /* Keep “Trying stuff.” on one line when space allows */
+  .hero-line-keep {
+    white-space: nowrap;
   }
   .hero-graphic {
     flex-shrink: 0;
+    align-self: flex-end;
+    transform: translateX(5px);
   }
   .hero-graphic .idea-svg {
-    max-width: 150px;
-    max-height: 95px;
+    max-width: 140px;
+    max-height: 89px;
   }
   .menu-trigger { min-height: 44px; padding: 0.5rem 1rem; }
+}
+
+@media (max-width: 360px) {
+  .hero-heading {
+    font-size: clamp(1.8rem, 6.5vw, 2.35rem);
+  }
+  .hero-graphic .idea-svg {
+    max-width: 118px;
+    max-height: 75px;
+  }
 }
 
 /* --- Intro --- */

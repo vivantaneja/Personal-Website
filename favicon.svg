@@ -1,5 +1,5 @@
-<!-- Tight viewBox so gears fill the tab icon (browsers scale to ~16×16px) -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-6 11 204 161">
+<!-- Square viewBox: Google and other crawlers rasterize favicons to a square; a non-square viewBox (~4:3) was stretching the circle. Browsers still scale this uniformly for the tab. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="-3 -7.5 196 196">
   <g transform="translate(55,72)">
     <path fill="#0c9f90" d="M58 0 L42.5 11.4 L50.2 29 L31.1 31.1 L29 50.2 L11.4 42.5 L0 58 L-11.4 42.5 L-29 50.2 L-31.1 31.1 L-50.2 29 L-42.5 11.4 L-58 0 L-42.5 -11.4 L-50.2 -29 L-31.1 -31.1 L-29 -50.2 L-11.4 -42.5 L0 -58 L11.4 -42.5 L29 -50.2 L31.1 -31.1 L50.2 -29 L42.5 -11.4 Z"/>
     <circle cx="0" cy="0" r="16" fill="#f6f4f0"/>

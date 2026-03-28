@@ -18,7 +18,14 @@
         themeToggle.setAttribute("aria-label", "Enable dark mode");
       }
     }
-    applyTheme(isDark());
+    function storedDark() {
+      try {
+        return localStorage.getItem("theme") === "dark";
+      } catch (e) {
+        return false;
+      }
+    }
+    applyTheme(storedDark());
     themeToggle.addEventListener("click", function () {
       applyTheme(!isDark());
     });

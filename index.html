@@ -12,9 +12,13 @@
   <link rel="stylesheet" href="styles.css?v=5" />
   <script>
     (function () {
+      var root = document.documentElement;
       try {
-        if (localStorage.getItem("theme") === "dark") document.documentElement.setAttribute("data-theme", "dark");
-      } catch (e) {}
+        if (localStorage.getItem("theme") === "dark") root.setAttribute("data-theme", "dark");
+        else root.removeAttribute("data-theme");
+      } catch (e) {
+        root.removeAttribute("data-theme");
+      }
     })();
   </script>
 </head>

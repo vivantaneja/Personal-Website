@@ -3,163 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Curious secondary school student building projects and trying things." />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png" />
-  <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180" />
-  <link rel="alternate icon" href="favicon.ico" sizes="any" />
+  <meta name="description" content="Secondary school student in Dublin building projects and trying things." />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#08070b" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="data:," />
   <title>Vivan Taneja</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=6" />
   <script>
     (function () {
       var root = document.documentElement;
-      try {
-        if (localStorage.getItem("theme") === "dark") root.setAttribute("data-theme", "dark");
-        else root.removeAttribute("data-theme");
-      } catch (e) {
-        root.removeAttribute("data-theme");
-      }
+      var theme = null;
+      try { theme = localStorage.getItem("theme"); } catch (e) {}
+      if (!theme) theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      root.setAttribute("data-theme", theme);
     })();
   </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+    <svg class="theme-toggle-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="theme-toggle-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+  </button>
+
   <main id="main" class="main">
-    <div class="theme-toggle-row">
-      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Enable dark mode">
-        <svg class="theme-toggle-icon theme-toggle-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-        <svg class="theme-toggle-icon theme-toggle-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-      </button>
-    </div>
-    <section class="hero section" aria-labelledby="hero-heading">
-      <div class="hero-inner">
-        <h1 id="hero-heading" class="hero-heading">
-          <span class="hero-line">Curious.</span>
-          <span class="hero-line hero-line-accent"><span class="hero-line-keep">Trying <em>stuff</em>.</span></span>
-        </h1>
-        <div class="hero-graphic" aria-hidden="true">
-          <svg class="idea-svg gears-svg" viewBox="-8 0 328 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Gear 1: 12 teeth R=58 r=44, left - meshes with 2 and 3 -->
-            <g class="gear gear-1">
-              <path class="gear-path" d="M58 0 L42.5 11.4 L50.2 29 L31.1 31.1 L29 50.2 L11.4 42.5 L0 58 L-11.4 42.5 L-29 50.2 L-31.1 31.1 L-50.2 29 L-42.5 11.4 L-58 0 L-42.5 -11.4 L-50.2 -29 L-31.1 -31.1 L-29 -50.2 L-11.4 -42.5 L0 -58 L11.4 -42.5 L29 -50.2 L31.1 -31.1 L50.2 -29 L42.5 -11.4 Z"/>
-              <circle class="gear-hole" cx="0" cy="0" r="16"/>
-            </g>
-            <!-- Gear 2: 10 teeth R=40 r=28, right - meshes with 1 -->
-            <g class="gear gear-2">
-              <path class="gear-path" d="M40 0 L26.6 8.65 L32.4 23.5 L16.45 22.65 L12.36 38.04 L0 28 L-12.36 38.04 L-16.45 22.65 L-32.4 23.5 L-26.6 8.65 L-40 0 L-26.6 -8.65 L-32.4 -23.5 L-16.45 -22.65 L-12.36 -38.04 L0 -28 L12.36 -38.04 L16.45 -22.65 L32.4 -23.5 L26.6 -8.65 Z"/>
-              <circle class="gear-hole" cx="0" cy="0" r="11"/>
-            </g>
-            <!-- Gear 3: 8 teeth R=32 r=22, below - meshes with 1 and 2 -->
-            <g class="gear gear-3">
-              <path class="gear-path" d="M32 0 L20.3 8.42 L22.6 22.6 L8.42 20.3 L0 32 L-8.42 20.3 L-22.6 22.6 L-20.3 8.42 L-32 0 L-20.3 -8.42 L-22.6 -22.6 L-8.42 -20.3 L0 -32 L8.42 -20.3 L22.6 -22.6 L20.3 -8.42 Z"/>
-              <circle class="gear-hole" cx="0" cy="0" r="8"/>
-            </g>
-          </svg>
-        </div>
-      </div>
-    </section>
-
-    <section id="intro" class="section intro">
-      <p class="intro-location"><svg class="icon icon-location" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Dublin, Ireland</p>
-      <p class="intro-lead">
-        Hi, I’m Vivan! I’m a 15-year-old secondary school student. I love building things and seeing how they work.
-      </p>
-      <p>
-        I’ve spent time building projects in coding and engineering, learning through experimentation, mistakes, and practice. I’m always exploring new ideas and experimenting to see what’s possible.
-      </p>
-    </section>
-
-    <section id="projects" class="section projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading" class="section-label">Projects</h2>
-      <ul class="project-list">
-        <li class="project-item">
-          <span class="project-name">
-            <a href="https://scoresheet-analyser.vivantaneja.com/" target="_blank" rel="noopener noreferrer">
-              Scoresheet Analyser
-              <svg class="icon icon-external" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </span>
-          <span class="project-desc">
-            Basketball scoresheet analyser that turns messy match sheets into clean, editable stats you can review and share.
-          </span>
-        </li>
-        <li class="project-item">
-          <span class="project-name">
-            <a href="https://dmbb.vivantaneja.com/" target="_blank" rel="noopener noreferrer">
-              DMBB Rebuild
-              <svg class="icon icon-external" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </span>
-          <span class="project-desc">
-            A better version of the current DMBB site with fixtures, results, standings, and live board updates.
-          </span>
-        </li>
-        <li class="project-item">
-          <span class="project-name">
-            <a href="https://past-irish-examinations.vivantaneja.com/" target="_blank" rel="noopener noreferrer">
-              Past Paper Finder
-              <svg class="icon icon-external" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </span>
-          <span class="project-desc">
-            Find Irish state exam materials: past papers, marking schemes, deferred papers, and audio files from examinations.ie. Filter by material, subject, year, level, and language.
-          </span>
-        </li>
-        <li class="project-item">
-          <span class="project-name">
-            <a href="https://green-habit-tracker.vivantaneja.com/" target="_blank" rel="noopener noreferrer">
-              Green Habit Tracker
-              <svg class="icon icon-external" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </span>
-          <span class="project-desc">
-            Track and maintain eco-friendly habits with a simple tool designed to help you build greener routines every day.
-          </span>
-        </li>
-      </ul>
-      <p class="projects-cta">
-        <a href="https://github.com/vivantaneja" target="_blank" rel="noopener noreferrer">
-          <svg class="icon icon-github" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          More on GitHub
+    <header class="header">
+      <h1 class="name">Vivan Taneja</h1>
+      <div class="socials">
+        <a href="https://github.com/vivantaneja" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         </a>
-      </p>
-    </section>
-
-    <section id="achievements" class="section achievements" aria-labelledby="achievements-heading">
-      <h2 id="achievements-heading" class="section-label">Achievements</h2>
-      <ul class="project-list">
-        <li class="project-item">
-          <span class="project-name">
-            <a href="https://www.ebf.eu/ebf-media-centre/updates/european-money-quiz-2026-brings-together-students-from-30-countries-to-boost-financial-skills/" target="_blank" rel="noopener noreferrer">
-              European Money Quiz
-              <svg class="icon icon-external" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </span>
-          <span class="project-desc">
-            Won the Irish national final and represented Ireland at the European Finals in Brussels in May 2026.
-          </span>
-        </li>
-      </ul>
-    </section>
-
-    <section id="contact" class="section contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading" class="section-label">Contact</h2>
-      <div class="contact-links">
-        <a href="mailto:vivan@vivantaneja.com" class="contact-link-icon" aria-label="Email">
-          <svg class="icon icon-mail" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="https://x.com/VivanTaneja" target="_blank" rel="noopener noreferrer" aria-label="X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
-        <a href="https://github.com/vivantaneja" target="_blank" rel="noopener noreferrer" class="contact-link-icon" aria-label="GitHub">
-          <svg class="icon icon-github" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-        </a>
-        <a href="https://x.com/VivanTaneja" target="_blank" rel="noopener noreferrer" class="contact-link-icon" aria-label="X">
-          <svg class="icon icon-x" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <a href="https://www.linkedin.com/in/vivantaneja/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </a>
       </div>
+      <a href="mailto:vivan@vivantaneja.com" class="email">vivan [at] vivantaneja [dot] com</a>
+    </header>
+
+    <section class="section" aria-labelledby="about-heading">
+      <h2 id="about-heading" class="label">About</h2>
+      <p>I'm a 16-year-old student at <a href="https://instituteofeducation.ie/" target="_blank" rel="noopener noreferrer">The Institute of Education</a> in <strong>Dublin, Ireland</strong>. I love building things and figuring out how they work.</p>
+      <p>Most of what I know comes from building projects in coding and engineering: experimenting, making mistakes, and trying again. I'm always exploring new ideas to see what's possible.</p>
+    </section>
+
+    <section class="section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="label">Projects</h2>
+      <ul class="list">
+        <li>
+          <a class="item-title" href="https://scoresheet-analyser.vivantaneja.com/" target="_blank" rel="noopener noreferrer">Scoresheet Analyser</a>
+          <p>Turns messy basketball match sheets into clean, editable stats you can review and share.</p>
+        </li>
+        <li>
+          <a class="item-title" href="https://dmbb.vivantaneja.com/" target="_blank" rel="noopener noreferrer">DMBB Rebuild</a>
+          <p>A better version of the current DMBB site with fixtures, results, standings, and live board updates.</p>
+        </li>
+        <li>
+          <a class="item-title" href="https://past-irish-examinations.vivantaneja.com/" target="_blank" rel="noopener noreferrer">Past Paper Finder</a>
+          <p>Find Irish state exam papers, marking schemes, deferred papers, and audio from examinations.ie, filtered by subject, year, level, and language.</p>
+        </li>
+      </ul>
+      <p class="more">More on <a href="https://github.com/vivantaneja" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+    </section>
+
+    <section class="section" aria-labelledby="achievements-heading">
+      <h2 id="achievements-heading" class="label">Achievements</h2>
+      <ul class="list">
+        <li>
+          <a class="item-title" href="https://bpfi.ie/moneyquiz/" target="_blank" rel="noopener noreferrer">European Money Quiz</a>
+          <p>Won the Irish national final and represented Ireland at the European Finals in Brussels, May 2026.</p>
+        </li>
+      </ul>
     </section>
   </main>
 
